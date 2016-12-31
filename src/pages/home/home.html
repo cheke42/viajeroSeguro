@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>
+      Location Tracker
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+  <h3>Current Latitude: {{locationTracker.lat}}</h3>
+  <h3>Current Longitude: {{locationTracker.lng}}</h3>
+  <br>
+  <ion-list inset>
+  <button ion-item *ngFor="let positionData of positionCollection">
+     <strong>Lat: {{positionData.geoposition.coords.latitude}} Long: {{positionData.geoposition.coords.longitude}} </strong> {{ positionData.date }} |
+  </button> 
+</ion-list>
+  <button ion-button full primary (click)="start()">Start Tracking</button>
+  <button ion-button full primary (click)="stop()">Stop Tracking</button>
+</ion-content>
